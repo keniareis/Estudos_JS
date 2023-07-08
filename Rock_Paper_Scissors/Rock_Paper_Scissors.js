@@ -6,7 +6,6 @@ let choice = prompt('\tRock(1)\t   Paper(2)\tScissors(3)\t\nMake Your Choice:');
 function numero(a, b){
     return Math.floor(Math.random()*(b - a + 1)) + a;
 }
-
 maquina = numero(1, 3);
 
 function escolha(choice, maquina) {
