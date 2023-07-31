@@ -16,33 +16,20 @@ class Pessoa {
         this.idade = idade;
     }
 
-    get falar(){
-        return this.nome;
+    falar(){
+        console.log(this.nome);
     }
 
-    get felizAniversario(){
+    felizAniversario(){
         this.idade++;
-            return `Happy birthday, you're ${this.idade} now!`;
+        console.log(`Happy birthday ${this.nome}, you're ${this.idade} now!`);
     }
 }
 
-const humanos = [];
-let continuar
+const pessoa1 = new Pessoa (prompt("Digite o nome da pessoa: "), parseInt(prompt("Digite a Idade: ")));
+const pessoa2 = new Pessoa (prompt("Digite o nome da pessoa: "), parseInt(prompt("Digite a Idade: ")));
 
-do {
-    
-    let PersonName = prompt("Digite o nome da pessoa: ");
-    let PersonAge = prompt("Digite a Idade: ");
-    let PersonNew = new Pessoa (PersonName, PersonAge);
-
-    humanos.push(PersonNew);
-
-    continuar = parseInt(prompt("Deseja adicionar outra pessoa? [1]Sim  [2]Não"))
-
-} while (continuar === 1);
-
-humanos.forEach((Pessoa) => {
-
-    console.log(`${Pessoa.falar} ${Pessoa.felizAniversario}`)
-
-});
+pessoa1.falar()
+pessoa1.felizAniversario()
+pessoa2.falar()
+pessoa2.felizAniversario()
