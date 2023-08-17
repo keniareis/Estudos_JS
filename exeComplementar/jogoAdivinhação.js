@@ -9,9 +9,9 @@ function sorteio(a, b) {
 
 function determina(machine, userChoice) {
     if (machine == userChoice) {
-        console.log(`\nVocê ACERTOU :D\n\nVocê escolheu ${userChoice}\nA maquina escolheu ${machine}`)
+        console.log(`\nVocê ACERTOU :D\n\nVocê escolheu ${userChoice}\nA maquina escolheu ${machine}`);
     } else {
-        console.log(`\nVocê ERROU :(\n\nVocê escolheu ${userChoice}\nA maquina escolheu ${machine}`)
+        console.log(`\nVocê ERROU :(\n\nVocê escolheu ${userChoice}\nA maquina escolheu ${machine}`);
     }
 }
 
@@ -26,4 +26,4 @@ function valida(machine, userChoice) {
 let machine = sorteio(1, 5);
 let userChoice = parseInt(prompt('\tA maquina escolheu um número de 1 a 5\nTente acertar qual: '));
 
-valida(machine, userChoice)
+valida(machine, userChoice);

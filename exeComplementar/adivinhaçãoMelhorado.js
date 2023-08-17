@@ -23,7 +23,6 @@ function tentativas(machine, userChoice) {
 
 function valida(machine, userChoice) {
     while (!(userChoice<=10 && userChoice>=1)) {
-        console.log ('\nEscolha INVÁLIDA!\n');
         userChoice = parseInt(prompt('Tente denovo: '));
     }
     determina(machine, userChoice);
