@@ -1,50 +1,50 @@
-const prompt = require('prompt-sync')();
-let choice = parseInt(prompt('\tRock(1)\t   Paper(2)\tScissors(3)\t\nMake Your Choice:'));
+const choices = ["rock", "paper", "scissors"];
+const playerDisplay = document.getElementById('playerDisplay');
+const computerDisplay = document.getElementById('computerDisplay');
+const resultDisplay = document.getElementById('resultDisplay');
+const playerScoreDisplay = document.getElementById('playerScoreDisplay');
+const computerScoreDisplay = document.getElementById('computerScoreDisplay');
 
-//Condição de entrada para entrar inserir apenas numeros válidos
-while (![1, 2, 3].includes(choice)) {
-    console.log('Escolha Inválida!!! Digite uma opção válida');
-    choice = parseInt(prompt('\tRock(1)\t   Paper(2)\tScissors(3)\t\nMake Your Choice:'));
-}
-//escolha da maquina: para sortear um numero aleatorio entre 'a' e 'b'
-function numero(a, b){
-    return Math.floor(Math.random()*(b - a + 1)) + a;
-}
-//atribuir o numero apenas de 1 a 3
-let maquina = numero(1, 3);
+let playerScore = 0;
+let computerScore = 0;
 
-//exibir a mensagem de escolha do usuario e da maquina atribuindo o nome aos numeros escolhidos
-function escolha(choice, maquina) {
-    let mensagem = '';
-    
-    if (choice==1) {
-        mensagem += 'You chose ROCK\n'
-    }else if (choice==2) {
-        mensagem+='You chose PAPER\n'
-    }else {
-        mensagem+='You chose SCISSORS\n'
-    }
-    if (maquina==1) {
-        mensagem+='Computer chose ROCK\n'
-    }else if (maquina==2) {
-        mensagem+='Computer chose PAPER\n'
-    } else {
-        mensagem+='Computer chose SCISSORS\n'
-    }
-    return mensagem;
-}
+function playGame(playerChoice){
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
 
-console.log(escolha(choice, maquina));
+    let result = "";
 
-//essa função determina o resultado do jogo
-function Resultado(choice, maquina) {
-    if (choice-maquina==0 || maquina-choice==0) {
-        return 'DRAW! :|\n';//retorna empate se a diferença entre as escolha for 0
+    if (playerChoice === computerChoice){
+        result = "IT'S A TIE!";
+    }else{
+        switch(playerChoice){
+            case "rock":
+                result = (computerChoice === "scissors") ? 'YOU WIN! :D\n' : 'YOU LOSE! :(\n';
+                break;
+            case "paper":
+                result = (computerChoice === "rock") ? 'YOU WIN! :D\n' : 'YOU LOSE! :(\n';
+                break;
+            case "scissors":
+                result = (computerChoice === "paper") ? 'YOU WIN! :D\n' : 'YOU LOSE! :(\n';
+                break;
+            
+        }
     }
-    else if(choice>maquina){ 
-        return (choice-maquina==1) ? 'YOU WIN! :D\n' : 'YOU LOSE! :(\n';//retornar vitória se a diferença for 1, senão retorna derrota
-    }else{ 
-        return (maquina-choice==1) ? 'YOU WIN! :D\n' : 'YOU LOSE! :(\n'//retornar vitória se a diferença for 1, senão retorna derrota
+    playerDisplay.textContent = `PLAYER:  ${playerChoice}`; 
+    computerDisplay.textContent = `Computer:  ${computerChoice}`; 
+    resultDisplay.textContent = result; 
+
+    resultDisplay.classList.remove("greenText", "redText");
+
+    switch(result){
+        case 'YOU WIN! :D\n':
+            resultDisplay.classList.add("greenText");
+            playerScore++;
+            playerScoreDisplay.textContent = playerScore;
+            break;
+        case 'YOU LOSE! :(\n':
+            resultDisplay.classList.add("redText");
+            computerScore++;
+            computerScoreDisplay.textContent = computerScore;
+            break;
     }
 }
-console.log(Resultado(choice, maquina));
