@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "name": "João",
+      "age": 25,
+      "isActive": true,
+      "country": "Brazil"
+    },
+    {
+      "id": 2,
+      "name": "Maria",
+      "age": 30,
+      "isActive": false,
+      "country": "Brazil"
+    },
+    {
+      "id": 3,
+      "name": "Lucas",
+      "age": 22,
+      "isActive": true,
+      "country": "Brazil"
+    },
+    {
+      "id": 4,
+      "name": "Ana",
+      "age": 28,
+      "isActive": true,
+      "country": "Portugal"
+    },
+    {
+      "id": 5,
+      "name": "Clara",
+      "age": 35,
+      "isActive": false,
+      "country": "Brazil"
+    }
+  ]
+  
